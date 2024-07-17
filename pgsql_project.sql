@@ -16,6 +16,7 @@ CREATE TABLE Departments(
 	department_name VARCHAR(100)
 );
 
+
 drop table if exists Projects;
 CREATE TABLE Projects(
 	project_id INT PRIMARY KEY,
