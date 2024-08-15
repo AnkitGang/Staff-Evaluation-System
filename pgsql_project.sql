@@ -213,16 +213,17 @@ CREATE INDEX idx_departments_department_id ON Departments(department_id);
 
 DROP VIEW IF EXISTS EmployeeProjectInvolvement;
 CREATE OR REPLACE VIEW EmployeeProjectInvolvement AS
-SELECT 
-	e.employee_id,
-	e.first_name,
-	e.last_name,
-	p.project_name,
-	a.role,
-	a.hours_worked
-FROM Employees e
-JOIN Assignments a ON e.employee_id = a.employee_id
-JOIN Projects p ON a.project_id = p.project_id;
+	SELECT 
+		e.employee_id,
+		e.first_name,
+		e.last_name,
+		p.project_name,
+		a.role,
+		a.hours_worked
+	FROM Employees e
+	JOIN Assignments a ON e.employee_id = a.employee_id
+	JOIN Projects p ON a.project_id = p.project_id
+;
 
 CREATE INDEX idx_assignments_employee_id ON Assignments(employee_id);
 CREATE INDEX idx_assignments_project_id ON Assignments(project_id);
